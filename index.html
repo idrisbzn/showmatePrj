@@ -1,14 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@300&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shellmates | Explore. Exploit. Evolve.</title>
+<meta name="description" content="Shellmates, the cybersecurity student club of ESI Algiers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="gridCanvas"></canvas>
-    <script src="index.js"></script>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="brand"><img src="images/logo-small.png" alt="" width="22" height="22"> SHELLMATES</a>
+    <button class="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="links" id="links">
+      <a href="#home" class="active">Home</a>
+      <a href="#activities">Activities</a>
+      <a href="#about">About</a>
+      <a href="#departments">Departements</a>
+      <a href="#events">Events</a>
+      <a href="#projects">Projects</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <canvas id="gridCanvas" aria-hidden="true"></canvas>
+  <div class="container hero-grid">
+    <div>
+      <h1>Explore. Exploit.<br><span class="green">Evolve.</span></h1>
+      <p class="lead">A cybersecurity community built around learning, experimentation, competition, and collaboration. Cultivating elite defensive and offensive security practitioners since 2011.</p>
+      <div class="stats">
+        <div><b>2011</b><small>Founded at ESI</small></div>
+        <div><b>125k+</b><small>Reach</small></div>
+        <div><b>08</b><small>Depts</small></div>
+        <div><b class="green">#1</b><small>Algeria</small></div>
+      </div>
+    </div>
+    <img class="hero-logo" src="images/logo.png" alt="Shellmates shield logo">
+  </div>
+</section>
+
+<section id="about" class="section alt">
+  <div class="container">
+    <h2>About Us</h2>
+    <p class="intro">Founded in 2011 under the name <strong>OWASP Club</strong>, Shellmates is the official cybersecurity student club at the <span class="green">National Higher School of Computer Science in Algiers (ESI)</span>. We are dedicated to promoting cybersecurity awareness, ethical hacking literacy, and technical engineering across Algeria through real-world labs, CTF competitions, and nationwide symposiums.</p>
+    <div class="grid g3">
+      <article class="card"><span class="ico">✦</span><h3>Knowledge Sharing</h3><p>Create a vibrant, ego-free space for open knowledge exchange, peer mentorship, code inspection, and constructive CTF competition.</p></article>
+      <article class="card"><span class="ico">⛨</span><h3>Cybersecurity Fundamentals</h3><p>Introduce students and newcomers to the vital foundations of ethical hacking, secure coding architecture, defensive analysis, and low-level computer systems.</p></article>
+      <article class="card"><span class="ico">◍</span><h3>International Recognition</h3><p>Compete at the highest global CTF arenas, contributing writeups, discovering novel CVEs, and cementing Algeria's presence in global cybersecurity rankings.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="departments" class="section">
+  <div class="container">
+    <h2>Our Departements</h2>
+    <div class="grid g4">
+      <article class="card dept"><div class="tag"><span>[ 01 ]</span><i>&gt;_</i></div><h3>Technical</h3><p>Leads the club's offensive and defensive security programs, technical infrastructure, CTFs, and specialized research workshops.</p></article>
+      <article class="card dept"><div class="tag"><span>[ 02 ]</span><i>&lt;/&gt;</i></div><h3>Development</h3><p>Engineers and maintains club digital platforms, internal CTF infrastructure, scoring portals, and specialized automation tools.</p></article>
+      <article class="card dept"><div class="tag"><span>[ 03 ]</span><i>✓</i></div><h3>Events</h3><p>Architects and orchestrates premier club events, venue logistics, live schedules, and national cyber symposiums.</p></article>
+      <article class="card dept"><div class="tag"><span>[ 04 ]</span><i>☻</i></div><h3>Human Resources</h3><p>Oversees member onboarding, talent integration, community welfare, and internal team synergy across cohorts.</p></article>
+      <article class="card dept"><div class="tag"><span>[ 05 ]</span><i>✎</i></div><h3>Design</h3><p>Crafts the club's visual identity, graphic materials, visual stage assets, digital UI, and futuristic brand language.</p></article>
+      <article class="card dept"><div class="tag"><span>[ 06 ]</span><i>◁)</i></div><h3>Communication</h3><p>Directs outreach strategy, press coverage, community announcements, and public narrative across digital media channels.</p></article>
+      <article class="card dept"><div class="tag"><span>[ 07 ]</span><i>▶</i></div><h3>Multimedia</h3><p>Produces documentary photography, teaser motion graphics, event recaps, and high-impact audiovisual assets.</p></article>
+      <article class="card dept"><div class="tag"><span>[ 08 ]</span><i>❖</i></div><h3>External Relations</h3><p>Forges strategic industry partnerships, sponsorships, university alliances, and professional alumni networks.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="activities" class="section alt">
+  <div class="container">
+    <h2>Activities</h2>
+    <p class="intro">Cultivating technical expertise through hands-on training, high-stakes competition, and open community collaboration across four primary pillars.</p>
+    <div class="grid g2">
+      <article class="card wide"><span class="ico green">&gt;_</span><h3>Workshops</h3><p>Hands-on technical sessions covering both offensive and defensive cybersecurity: Web Exploitation, Cryptography, Binary Exploitation (Pwn), Reverse Engineering, and Digital Forensics.</p></article>
+      <article class="card wide"><span class="ico green">⚑</span><h3>Internal Events</h3><p>Exclusive member-only CTFs, practical challenges, adversary team simulations, and technical bonding designed to test stamina, problem-solving speed, and dynamic thinking.</p></article>
+      <article class="card wide"><span class="ico green">◍</span><h3>External Events</h3><p>Public hackathons, nationwide competitions, and university-wide cybersecurity challenges bringing together talent from across Algeria to compete and learn.</p></article>
+      <article class="card wide"><span class="ico green">▤</span><h3>Meetups</h3><p>Hack The Box collaborative sessions, live machine solving, tradecraft exchange, knowledge sharing, and informal community roundtables in isolated labs.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="events" class="section">
+  <div class="container">
+    <h2>Our Events</h2>
+    <div class="grid g3">
+      <article class="card event"><div class="event-img"><img src="images/hackini.png" alt="Hack.INI"></div><h3>Hack.INI</h3><span class="kicker">Hack Initiation Event</span><p>The flagship cybersecurity initiation event held by Shellmates for over a decade. Built to onboard beginners and students into ethical hacking, core security disciplines, and a real-time capture-the-flag tournament.</p></article>
+      <article class="card event"><div class="event-img"><img src="images/bsides.png" alt="BSides Algiers"></div><h3>BSides Algiers</h3><span class="kicker">Security BSides Network</span><p>Part of the prestigious global Security BSides conference network, organized exclusively by Shellmates since 2020. Features world-class keynote speakers, technical panel debates, industry workshops, and an intense high-stakes CTF tournament.</p></article>
+      <article class="card event"><div class="event-img"><img src="images/cybersec-bootcamp.png" alt="Cybersec Bootcamp"></div><h3>Cybersec Bootcamp</h3><span class="kicker">Initiation Program &amp; Intensive Gateway</span><p>The comprehensive bootcamp and gateway program where newly recruited club members discover the 5 pillars of cybersecurity with direct 1-on-1 guidance from senior mentors, fast-tracking them from curious recruits to active contributors.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section alt">
+  <div class="container">
+    <h2>Our Projects</h2>
+    <div class="grid g2">
+      <article class="card wide"><h3 class="dot">ShellPath</h3><p>An internal project where a team of mentors gather to make cyber security content for the club and tackle subjects beyond ctf categories for example last year we featured active directory, malware development, web exploitation, blue teaming</p></article>
+      <article class="card wide"><h3 class="dot">Cybersecurity-Attacks</h3><p>Is an internal project where we make teams and collaborate to recreate famous cybersecurity attacks in isolated controlled environment to showcase network defense, and events</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-wrap">
+  <div class="container">
+    <div class="cta">
+      <img src="images/logo-small.png" alt="" width="44" height="52">
+      <h2>Learn. Build. Compete.<br>Connect.</h2>
+      <p>Shellmates is more than a cybersecurity club — it is a passionate community built around learning, experimentation, competition, and collaboration. Whether your goal is to master offensive security, explore modern defense, build impactful tools, or find like-minded peers, there is a place for you here. Step up, push your limits, and shape the future of cybersecurity.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<script src="grid.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
