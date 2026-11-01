@@ -2,123 +2,497 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Shellmates | Explore. Exploit. Evolve.</title>
-    <meta name="description" content="Shellmates, the cybersecurity student club of ESI Algiers.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shellmates </title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+   <header class="header">
+    <div class="container">
+      <a class="brand" href="#home">
+        <img src="assets/logo-sm.png" alt="Shellmates logo">
+        SHELLMATES
+      </a>
+      <nav aria-label="Main Navigation">
+        <a href="#home" class="active">Home</a>
+         <a href="#about">About</a>
+        <a href="#activities">Activities</a>
+        <a href="#departements">Departements</a>
+        <a href="#events">Events</a>
+        <a href="#projects">Projects</a>
+      </nav>
+    </div>
+  </header>
 
-<header class="nav">
-  <div class="container nav-inner">
-    <a href="#home" class="brand"><img src="images/logo-small.png" alt="" width="22" height="22"> SHELLMATES</a>
-    <button class="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
-    <nav class="links" id="links">
-      <a href="#home" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#departments">Departements</a>
-      <a href="#activities">Activities</a>
-      <a href="#events">Events</a>
-      <a href="#projects">Projects</a>
-    </nav>
-  </div>
-</header>
+  <main>
+    <!-- ================= HERO ================= -->
 
-<main>
-<section id="home" class="hero">
-  <canvas id="gridCanvas" aria-hidden="true"></canvas>
-  <div class="container hero-grid">
-    <div>
-      <h1>Explore. Exploit.<br><span class="green">Evolve.</span></h1>
-      <p class="lead">A cybersecurity community built around learning, experimentation, competition, and collaboration. Cultivating elite defensive and offensive security practitioners since 2011.</p>
-      <div class="stats">
-        <div><b>2011</b><small>Founded at ESI</small></div>
-        <div><b>125k+</b><small>Reach</small></div>
-        <div><b>08</b><small>Depts</small></div>
-        <div><b class="green">#1</b><small>Algeria</small></div>
+    <section id="home" class="hero">
+
+      <canvas id="gridCanvas"></canvas>
+
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-left">
+            <h1>Explore. Exploit.<br><span class="accent">Evolve.</span></h1>
+            <p>A cybersecurity community built around learning, experimentation, competition, and collaboration. Cultivating elite defensive and offensive security practitioners since 2011.</p>
+            
+            <div class="stats">
+              <div class="stat">
+                <b>2011</b>
+                <span>Founded at<br>ESI</span>
+              </div>
+              <div class="stat">
+                <b>125k+</b>
+                <span>Reach</span>
+              </div>
+              <div class="stat">
+                <b>08</b>
+                <span>Depts</span>
+              </div>
+              <div class="stat">
+                <b class="accent">#1</b>
+                <span>Algeria</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="hero-right">
+            <img src="assets/emblem.png" alt="Shellmates shield emblem">
+          </div>
+        </div>
       </div>
-    </div>
-    <img class="hero-logo" src="images/logo.png" alt="Shellmates shield logo">
-  </div>
-</section>
+    </section>
 
-<section id="about" class="section alt">
-  <div class="container">
-    <h2>About Us</h2>
-    <p class="intro">Founded in 2011 under the name <strong>OWASP Club</strong>, Shellmates is the official cybersecurity student club at the <span class="green">National Higher School of Computer Science in Algiers (ESI)</span>. We are dedicated to promoting cybersecurity awareness, ethical hacking literacy, and technical engineering across Algeria through real-world labs, CTF competitions, and nationwide symposiums.</p>
-    <div class="grid g3">
-      <article class="card"><span class="ico">✦</span><h3>Knowledge Sharing</h3><p>Create a vibrant, ego-free space for open knowledge exchange, peer mentorship, code inspection, and constructive CTF competition.</p></article>
-      <article class="card"><span class="ico">⛨</span><h3>Cybersecurity Fundamentals</h3><p>Introduce students and newcomers to the vital foundations of ethical hacking, secure coding architecture, defensive analysis, and low-level computer systems.</p></article>
-      <article class="card"><span class="ico">◍</span><h3>International Recognition</h3><p>Compete at the highest global CTF arenas, contributing writeups, discovering novel CVEs, and cementing Algeria's presence in global cybersecurity rankings.</p></article>
-    </div>
-  </div>
-</section>
+    <!-- ================= ABOUT ================= -->
+    <section id="about">
+      <div class="container">
+        <h2>About Us</h2>
+        <p class="lead">
+          Founded in 2011 under the name OWASP Club, Shellmates is the official cybersecurity student club at the National Higher School of Computer Science in Algiers (ESI). We are dedicated to promoting cybersecurity awareness, ethical hacking literacy, and technical engineering across Algeria through real-world labs, CTF competitions, and nationwide symposiums.
+        </p>
+        
+        <div class="grid3">
+          <article class="card">
+            <h3>Knowledge Sharing</h3>
+            <p>Create a vibrant, ego-free space for open knowledge exchange, peer mentorship, code inspection, and constructive CTF competition.</p>
+          </article>
+          
+          <article class="card">
+            <h3>Cybersecurity Fundamentals</h3>
+            <p>Introduce students and newcomers to the vital foundations of ethical hacking, secure coding architecture, defensive analysis, and low-level computer systems.</p>
+          </article>
+          
+          <article class="card">
+            <h3>International Recognition</h3>
+            <p>Compete at the highest global CTF arenas, contributing writeups, discovering novel CVEs, and cementing Algeria’s presence in global cybersecurity rankings.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section id="departments" class="section">
-  <div class="container">
-    <h2>Our Departements</h2>
-    <div class="grid g4">
-      <article class="card dept"><div class="tag"><span>[ 01 ]</span><i>&gt;_</i></div><h3>Technical</h3><p>Leads the club's offensive and defensive security programs, technical infrastructure, CTFs, and specialized research workshops.</p></article>
-      <article class="card dept"><div class="tag"><span>[ 02 ]</span><i>&lt;/&gt;</i></div><h3>Development</h3><p>Engineers and maintains club digital platforms, internal CTF infrastructure, scoring portals, and specialized automation tools.</p></article>
-      <article class="card dept"><div class="tag"><span>[ 03 ]</span><i>✓</i></div><h3>Events</h3><p>Architects and orchestrates premier club events, venue logistics, live schedules, and national cyber symposiums.</p></article>
-      <article class="card dept"><div class="tag"><span>[ 04 ]</span><i>☻</i></div><h3>Human Resources</h3><p>Oversees member onboarding, talent integration, community welfare, and internal team synergy across cohorts.</p></article>
-      <article class="card dept"><div class="tag"><span>[ 05 ]</span><i>✎</i></div><h3>Design</h3><p>Crafts the club's visual identity, graphic materials, visual stage assets, digital UI, and futuristic brand language.</p></article>
-      <article class="card dept"><div class="tag"><span>[ 06 ]</span><i>◁)</i></div><h3>Communication</h3><p>Directs outreach strategy, press coverage, community announcements, and public narrative across digital media channels.</p></article>
-      <article class="card dept"><div class="tag"><span>[ 07 ]</span><i>▶</i></div><h3>Multimedia</h3><p>Produces documentary photography, teaser motion graphics, event recaps, and high-impact audiovisual assets.</p></article>
-      <article class="card dept"><div class="tag"><span>[ 08 ]</span><i>❖</i></div><h3>External Relations</h3><p>Forges strategic industry partnerships, sponsorships, university alliances, and professional alumni networks.</p></article>
-    </div>
-  </div>
-</section>
+    <!-- ================= ACTIVITIES ================= -->
+    <section id="activities">
+      <div class="container">
+        <h2>Activities</h2>
+        <p class="sec-sub">Cultivating technical expertise through hands-on training, high-stakes competition, and open community collaboration across four primary pillars.</p>
+        
+        <div class="grid2">
+          <article class="card">
+            <div class="card-title">
+              <h3>Workshops</h3>
+            </div>
+            <p>Hands-on technical sessions covering both offensive and defensive cybersecurity: Web Exploitation, Cryptography, Binary Exploitation (Pwn), Reverse Engineering, and Digital Forensics.</p>
+          </article>
+          
+          <article class="card">
+            <div class="card-title">
+              <h3>Internal Events</h3>
+            </div>
+            <p>Exclusive member-only CTFs, practical challenges, adversary team simulations, and technical bonding designed to test stamina, problem-solving speed, and dynamic thinking.</p>
+          </article>
+          
+          <article class="card">
+            <div class="card-title">
+              <h3>External Events</h3>
+            </div>
+            <p>Public hackathons, nationwide competitions, and university-wide cybersecurity challenges bringing together talent from across Algeria to compete and learn.</p>
+          </article>
+          
+          <article class="card">
+            <div class="card-title">
+              <h3>Meetups</h3>
+            </div>
+            <p>Hack The Box collaborative sessions, live machine solving, tradecraft exchange, knowledge sharing, and informal community roundtables in isolated labs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+     <!-- ================= DEPARTMENTS ================= -->
+    <section id="departements" class="alt">
+      <div class="container">
+        <h2>Our Departements</h2>
+        
+        <div class="dept-grid">
+          <article class="card">
+            <div class="dept-top">
+              <span class="sg">[ 01 ]</span>
+            </div>
+            <h3>Technical</h3>
+            <p>Leads the club’s offensive and defensive security programs, technical infrastructure, CTFs, and specialized research workshops.</p>
+          </article>
+          
+          <article class="card">
+            <div class="dept-top">
+              <span class="sg">[ 02 ]</span>
+            </div>
+            <h3>Development</h3>
+            <p>Engineers and maintains club digital platforms, internal CTF infrastructure, scoring portals, and specialized automation tools.</p>
+          </article>
+          
+          <article class="card">
+            <div class="dept-top">
+              <span class="sg">[ 03 ]</span>
+            </div>
+            <h3>Events</h3>
+            <p>Architects and orchestrates premier club events, venue logistics, live schedules, and national cyber symposiums.</p>
+          </article>
+          
+          <article class="card">
+            <div class="dept-top">
+              <span class="sg">[ 04 ]</span>
+            </div>
+            <h3>Human Resources</h3>
+            <p>Oversees member onboarding, talent integration, community welfare, and internal team synergy across cohorts.</p>
+          </article>
+          
+          <article class="card">
+            <div class="dept-top">
+              <span class="sg">[ 05 ]</span>
+            </div>
+            <h3>Design</h3>
+            <p>Crafts the club’s visual identity, graphic materials, visual stage assets, digital UI, and futuristic brand language.</p>
+          </article>
+          
+          <article class="card">
+            <div class="dept-top">
+              <span class="sg">[ 06 ]</span>
+            </div>
+            <h3>Communication</h3>
+            <p>Directs outreach strategy, press coverage, community announcements, and public narrative across digital media channels.</p>
+          </article>
+          
+          <article class="card">
+            <div class="dept-top">
+              <span class="sg">[ 07 ]</span>
+            </div>
+            <h3>Multimedia</h3>
+            <p>Produces documentary photography, teaser motion graphics, event recaps, and high-impact audiovisual assets.</p>
+          </article>
+          
+          <article class="card">
+            <div class="dept-top">
+              <span class="sg">[ 08 ]</span>
+            </div>
+            <h3>External Relations</h3>
+            <p>Forges strategic industry partnerships, sponsorships, university alliances, and professional alumni networks.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section id="activities" class="section alt">
-  <div class="container">
-    <h2>Activities</h2>
-    <p class="intro">Cultivating technical expertise through hands-on training, high-stakes competition, and open community collaboration across four primary pillars.</p>
-    <div class="grid g2">
-      <article class="card wide"><span class="ico green">&gt;_</span><h3>Workshops</h3><p>Hands-on technical sessions covering both offensive and defensive cybersecurity: Web Exploitation, Cryptography, Binary Exploitation (Pwn), Reverse Engineering, and Digital Forensics.</p></article>
-      <article class="card wide"><span class="ico green">⚑</span><h3>Internal Events</h3><p>Exclusive member-only CTFs, practical challenges, adversary team simulations, and technical bonding designed to test stamina, problem-solving speed, and dynamic thinking.</p></article>
-      <article class="card wide"><span class="ico green">◍</span><h3>External Events</h3><p>Public hackathons, nationwide competitions, and university-wide cybersecurity challenges bringing together talent from across Algeria to compete and learn.</p></article>
-      <article class="card wide"><span class="ico green">▤</span><h3>Meetups</h3><p>Hack The Box collaborative sessions, live machine solving, tradecraft exchange, knowledge sharing, and informal community roundtables in isolated labs.</p></article>
-    </div>
-  </div>
-</section>
+    
 
-<section id="events" class="section">
-  <div class="container">
-    <h2>Our Events</h2>
-    <div class="grid g3">
-      <article class="card event"><div class="event-img"><img src="images/hackini.png" alt="Hack.INI"></div><h3>Hack.INI</h3><span class="kicker">Hack Initiation Event</span><p>The flagship cybersecurity initiation event held by Shellmates for over a decade. Built to onboard beginners and students into ethical hacking, core security disciplines, and a real-time capture-the-flag tournament.</p></article>
-      <article class="card event"><div class="event-img"><img src="images/bsides.png" alt="BSides Algiers"></div><h3>BSides Algiers</h3><span class="kicker">Security BSides Network</span><p>Part of the prestigious global Security BSides conference network, organized exclusively by Shellmates since 2020. Features world-class keynote speakers, technical panel debates, industry workshops, and an intense high-stakes CTF tournament.</p></article>
-      <article class="card event"><div class="event-img"><img src="images/cybersec-bootcamp.png" alt="Cybersec Bootcamp"></div><h3>Cybersec Bootcamp</h3><span class="kicker">Initiation Program &amp; Intensive Gateway</span><p>The comprehensive bootcamp and gateway program where newly recruited club members discover the 5 pillars of cybersecurity with direct 1-on-1 guidance from senior mentors, fast-tracking them from curious recruits to active contributors.</p></article>
-    </div>
-  </div>
-</section>
+    <!-- ================= EVENTS ================= -->
+    <section id="events" class="alt">
+      <div class="container">
+        <h2>Our Events</h2>
+        
+        <div class="events">
+          <article class="card event">
+            <img src="assets/hack-ini.png" alt="Hack.INI logo">
+            <h3>Hack.INI</h3>
+            <div class="tag">Hack Initiation Event</div>
+            <p>The flagship cybersecurity initiation event held by Shellmates for over a decade. Built to onboard beginners and students into ethical hacking, core security disciplines, and a real-time capture-the-flag tournament.</p>
+          </article>
+          
+          <article class="card event">
+            <img src="assets/bsides.png" alt="BSides Algiers logo">
+            <h3>BSides Algiers</h3>
+            <div class="tag">Security BSides Network</div>
+            <p>Part of the prestigious global Security BSides conference network, organized exclusively by Shellmates since 2020. Features world-class keynote speakers, technical panel debates, industry workshops, and an intense high-stakes CTF tournament.</p>
+          </article>
+          
+          <article class="card event">
+            <img src="assets/bootcamp.png" alt="Cybersec Bootcamp logo">
+            <h3>Cybersec Bootcamp</h3>
+            <div class="tag">Initiation Program &amp; Intensive Gateway</div>
+            <p>The comprehensive bootcamp and gateway program where newly recruited club members discover the 5 pillars of cybersecurity with direct 1-on-1 guidance from senior mentors, fast-tracking them from curious recruits to active contributors.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section id="projects" class="section alt">
-  <div class="container">
-    <h2>Our Projects</h2>
-    <div class="grid g2">
-      <article class="card wide"><h3 class="dot">ShellPath</h3><p>An internal project where a team of mentors gather to make cyber security content for the club and tackle subjects beyond ctf categories for example last year we featured active directory, malware development, web exploitation, blue teaming</p></article>
-      <article class="card wide"><h3 class="dot">Cybersecurity-Attacks</h3><p>Is an internal project where we make teams and collaborate to recreate famous cybersecurity attacks in isolated controlled environment to showcase network defense, and events</p></article>
-    </div>
-  </div>
-</section>
 
-<section class="section cta-wrap">
-  <div class="container">
-    <div class="cta">
-      <img src="images/logo-small.png" alt="" width="44" height="52">
-      <h2>Learn. Build. Compete.<br>Connect.</h2>
-      <p>Shellmates is more than a cybersecurity club — it is a passionate community built around learning, experimentation, competition, and collaboration. Whether your goal is to master offensive security, explore modern defense, build impactful tools, or find like-minded peers, there is a place for you here. Step up, push your limits, and shape the future of cybersecurity.</p>
-    </div>
-  </div>
-</section>
-</main>
+   
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects">
+      <div class="container">
+        <h2>Our Projects</h2>
+        
+        <div class="projects">
+          <article class="card project">
+            <div class="project-head">
+              <span class="dot" aria-hidden="true"></span>
+              <h3>ShellPath</h3>
+            </div>
+            <p>An internal project where a team of mentors gather to make cyber security content for the club and tackle subjects beyond ctf categories for example last year we featured active directory , malware development , web exploitation , blue teaming</p>
+          </article>
+          
+          <article class="card project">
+            <div class="project-head">
+              <span class="dot" aria-hidden="true"></span>
+              <h3>Cybersecurity-Attacks</h3>
+            </div>
+            <p>Is an internal project where we make teams and collaborate to recreate famous cybersecurity attacks in isolated controlled enviromment to showcase in stands and events</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<script src="grid.js"></script>
-<script src="script.js"></script>
+    <!-- ================= END / CTA ================= -->
+    <section class="end">
+      <div class="container">
+        <div class="card cta">
+          <img src="assets/logo-lg.png" alt="Shellmates logo">
+          <h2>Learn. Build. Compete.<br>Connect.</h2>
+          <p>Shellmates is more than a cybersecurity club — it is a passionate community built around learning, experimentation, competition, and collaboration. Whether your goal is to master offensive security, explore modern defense, build impactful tools, or find like-minded peers, there is a place for you here. Step up, push your limits, and shape the future of cybersecurity.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<script>
+// Highlight the nav link of the section currently in view
+
+const links = document.querySelectorAll('nav a');
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.hash === '#' + e.target.id));
+}), { rootMargin: '-20% 0px -60% 0px' });
+document.querySelectorAll('main section[id]').forEach(s => io.observe(s));
+
+// Animated grid background for the hero section
+(function() {
+  const canvas = document.getElementById('gridCanvas');
+  if (!canvas) return;
+  
+  const hero = canvas.parentElement;
+  const ctx = canvas.getContext('2d');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const config = {
+    gridSize: 80,
+    particleCount: 35,
+    particleSpeedMin: 1,
+    particleSpeedMax: 3.5,
+    particleColors: ['#06ff5d', '#4fff15', '#3e770d'],
+    trailLength: 20,
+    backgroundColor: '#080A08',
+    rippleDuration: 2000,
+    rippleMaxRadius: 200,
+    characterSize: 16
+  };
+
+  const occupiedLines = { horizontal: new Set(), vertical: new Set() };
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;':,./<>?";
+  const rand = (min, max) => Math.random() * (max - min) + min;
+
+  function resize() {
+    canvas.width = hero.clientWidth;
+    canvas.height = hero.clientHeight;
+    occupiedLines.horizontal.clear();
+    occupiedLines.vertical.clear();
+    particles.forEach(p => p.reset());
+  }
+
+  function drawGrid() {
+    ctx.fillStyle = config.backgroundColor;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    gradient.addColorStop(0, 'rgb(51, 85, 51)');
+    gradient.addColorStop(1, 'rgba(51, 85, 52, 0)');
+    ctx.strokeStyle = gradient;
+    ctx.lineWidth = 1;
+
+    ctx.beginPath();
+    for (let y = 0; y < canvas.height; y += config.gridSize) {
+      ctx.moveTo(0, y);
+      ctx.lineTo(canvas.width, y);
+    }
+    for (let x = 0; x < canvas.width; x += config.gridSize) {
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, canvas.height);
+    }
+    ctx.stroke();
+  }
+
+  class Particle {
+    constructor() {
+      this.color = config.particleColors[Math.floor(Math.random() * config.particleColors.length)];
+      this.trail = [];
+      this.cooldown = 0;
+      this.reset();
+    }
+
+    update() {
+      if (this.active) {
+        this.trail.push({ x: this.x, y: this.y });
+        if (this.trail.length > config.trailLength) this.trail.shift();
+
+        if (this.direction === 'horizontal') {
+          this.x += this.speed;
+          if (this.x > canvas.width) {
+            this.active = false;
+            occupiedLines.horizontal.delete(this.y);
+          }
+        } else {
+          this.y += this.speed;
+          if (this.y > canvas.height) {
+            this.active = false;
+            occupiedLines.vertical.delete(this.x);
+          }
+        }
+      } else {
+        if (this.trail.length > 0) {
+          this.trail.shift();
+        } else if (this.cooldown > 0) {
+          this.cooldown--;
+        } else {
+          this.reset();
+        }
+      }
+    }
+
+    draw() {
+      if (this.trail.length === 0) return;
+      ctx.fillStyle = this.color;
+      for (let i = 0; i < this.trail.length; i++) {
+        const pt = this.trail[i];
+        ctx.globalAlpha = (i + 1) / this.trail.length;
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, 1.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    findAvailableLine() {
+      if (canvas.width === 0 || canvas.height === 0) return false;
+      for (let attempts = 0; attempts < 30; attempts++) {
+        if (Math.random() > 0.5) {
+          const y = Math.round(Math.random() * canvas.height / config.gridSize) * config.gridSize;
+          if (!occupiedLines.horizontal.has(y)) {
+            this.direction = 'horizontal';
+            this.x = 0;
+            this.y = y;
+            occupiedLines.horizontal.add(y);
+            return true;
+          }
+        } else {
+          const x = Math.round(Math.random() * canvas.width / config.gridSize) * config.gridSize;
+          if (!occupiedLines.vertical.has(x)) {
+            this.direction = 'vertical';
+            this.x = x;
+            this.y = 0;
+            occupiedLines.vertical.add(x);
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+
+    reset() {
+      this.trail = [];
+      this.speed = rand(config.particleSpeedMin, config.particleSpeedMax);
+      this.active = this.findAvailableLine();
+      if (!this.active) {
+        this.cooldown = Math.floor(rand(10, 50));
+      }
+    }
+  }
+
+  class Ripple {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+      this.radius = 0;
+      this.startTime = Date.now();
+    }
+    update() {
+      this.radius = ((Date.now() - this.startTime) / config.rippleDuration) * config.rippleMaxRadius;
+    }
+    draw() {
+      const alpha = Math.max(0, 1 - this.radius / config.rippleMaxRadius);
+      ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.stroke();
+
+      if (Math.random() < 0.15) {
+        ctx.fillStyle = `rgba(172, 255, 172, ${alpha})`;
+        ctx.font = `${config.characterSize}px monospace`;
+        ctx.fillText(
+          characters[Math.floor(Math.random() * characters.length)],
+          this.x + (Math.random() - 0.5) * this.radius * 2,
+          this.y + (Math.random() - 0.5) * this.radius * 2
+        );
+      }
+    }
+    isComplete() { return this.radius >= config.rippleMaxRadius; }
+  }
+
+  const particles = Array.from({ length: config.particleCount }, () => new Particle());
+  let ripples = [];
+  let running = false;
+
+  function animate() {
+    if (!running) return;
+    drawGrid();
+    particles.forEach(p => { p.update(); p.draw(); });
+    ripples = ripples.filter(r => !r.isComplete());
+    ripples.forEach(r => { r.update(); r.draw(); });
+    requestAnimationFrame(animate);
+  }
+
+  new ResizeObserver(() => {
+    resize();
+    if (reduceMotion) drawGrid();
+  }).observe(hero);
+
+  if (reduceMotion) return;
+
+  new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting && !running) {
+      running = true;
+      animate();
+    } else if (!entry.isIntersecting) {
+      running = false;
+    }
+  }).observe(hero);
+
+  hero.addEventListener('click', e => {
+    if (e.target.closest('a, button')) return;
+    const rect = canvas.getBoundingClientRect();
+    ripples.push(new Ripple(e.clientX - rect.left, e.clientY - rect.top));
+  });
+
+})();
+
+
+
+</script>
+
 </body>
 </html>
