@@ -2,17 +2,18 @@
 (() => {
   const canvas = document.getElementById('gridCanvas');
   if (!canvas) return;
+
   const hero = canvas.parentElement;
   const ctx = canvas.getContext('2d');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const config = {
-    gridSize: 80,
-    particleCount: 50,
-    particleSpeedMin: 0.5,
-    particleSpeedMax: 5,
+    gridSize: 100,
+    particleCount: 35,
+    particleSpeedMin: 1,
+    particleSpeedMax: 3.5,
     particleColors: ['#06ff5d', '#4fff15', '#3e770d'],
-    trailLength: 300,
+    trailLength: 20,
     backgroundColor: '#080A08',
     rippleDuration: 2000,
     rippleMaxRadius: 200,
@@ -28,10 +29,13 @@
     canvas.height = hero.clientHeight;
     occupiedLines.horizontal.clear();
     occupiedLines.vertical.clear();
+    ripples.length = 0;
     particles.forEach(p => p.reset());
   }
 
   function drawGrid() {
+    if (canvas.width === 0 || canvas.height === 0) return;
+
     ctx.fillStyle = config.backgroundColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -56,14 +60,16 @@
   class Particle {
     constructor() {
       this.color = config.particleColors[Math.floor(Math.random() * config.particleColors.length)];
+      this.trail = [];
+      this.cooldown = 0;
       this.reset();
     }
 
     update() {
-      this.trail.push({ x: this.x, y: this.y });
-      if (this.trail.length > config.trailLength) this.trail.shift();
-
       if (this.active) {
+        this.trail.push({ x: this.x, y: this.y });
+        if (this.trail.length > config.trailLength) this.trail.shift();
+
         if (this.direction === 'horizontal') {
           this.x += this.speed;
           if (this.x > canvas.width) {
@@ -77,27 +83,33 @@
             occupiedLines.vertical.delete(this.x);
           }
         }
-      } else if (this.trail.every(p =>
-        (this.direction === 'horizontal' && p.x > canvas.width) ||
-        (this.direction === 'vertical' && p.y > canvas.height) ||
-        !this.direction)) {
-        this.reset();
+      } else {
+        if (this.trail.length > 0) {
+          this.trail.shift();
+        } else if (this.cooldown > 0) {
+          this.cooldown--;
+        } else {
+          this.reset();
+        }
       }
     }
 
     draw() {
+      if (this.trail.length === 0) return;
       ctx.fillStyle = this.color;
       for (let i = 0; i < this.trail.length; i++) {
-        ctx.globalAlpha = i / this.trail.length;
+        const pt = this.trail[i];
+        ctx.globalAlpha = (i + 1) / this.trail.length;
         ctx.beginPath();
-        ctx.arc(this.trail[i].x, this.trail[i].y, 0.4, 0, Math.PI * 2);
+        ctx.arc(pt.x, pt.y, 1.5, 0, Math.PI * 2);
         ctx.fill();
       }
       ctx.globalAlpha = 1;
     }
 
     findAvailableLine() {
-      for (let attempts = 0; attempts < 100; attempts++) {
+      if (canvas.width === 0 || canvas.height === 0) return false;
+      for (let attempts = 0; attempts < 30; attempts++) {
         if (Math.random() > 0.5) {
           const y = Math.round(Math.random() * canvas.height / config.gridSize) * config.gridSize;
           if (!occupiedLines.horizontal.has(y)) {
@@ -125,6 +137,9 @@
       this.trail = [];
       this.speed = rand(config.particleSpeedMin, config.particleSpeedMax);
       this.active = this.findAvailableLine();
+      if (!this.active) {
+        this.cooldown = Math.floor(rand(10, 50));
+      }
     }
   }
 
@@ -159,17 +174,21 @@
   }
 
   const particles = Array.from({ length: config.particleCount }, () => new Particle());
-  let ripples = [];
+  const ripples = [];
   let running = false;
 
   function animate() {
     if (!running) return;
     drawGrid();
     particles.forEach(p => { p.update(); p.draw(); });
-    ripples = ripples.filter(r => !r.isComplete());
+    for (let i = ripples.length - 1; i >= 0; i--) {
+      if (ripples[i].isComplete()) ripples.splice(i, 1);
+    }
     ripples.forEach(r => { r.update(); r.draw(); });
     requestAnimationFrame(animate);
   }
+
+  resize(); // size the canvas before the first frame
 
   // Keep canvas matched to the hero's size
   new ResizeObserver(() => {
@@ -177,7 +196,10 @@
     if (reduceMotion) drawGrid();
   }).observe(hero);
 
-  if (reduceMotion) return; // static grid only
+  if (reduceMotion) {
+    drawGrid(); // static grid only
+    return;
+  }
 
   // Only animate while the hero is on screen
   new IntersectionObserver(([entry]) => {
@@ -193,6 +215,9 @@
   hero.addEventListener('click', e => {
     if (e.target.closest('a, button')) return;
     const rect = canvas.getBoundingClientRect();
-    ripples.push(new Ripple(e.clientX - rect.left, e.clientY - rect.top));
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    if (x < 0 || y < 0 || x > canvas.width || y > canvas.height) return;
+    ripples.push(new Ripple(x, y));
   });
 })();

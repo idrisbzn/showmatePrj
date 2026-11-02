@@ -1,27 +1,34 @@
-// Mobile menu
-const burger = document.querySelector('.burger');
-const menu = document.getElementById('links');
-burger.addEventListener('click', () => {
-  const open = menu.classList.toggle('open');
-  burger.setAttribute('aria-expanded', open);
-});
-menu.querySelectorAll('a').forEach(a =>
-  a.addEventListener('click', () => {
-    menu.classList.remove('open');
-    burger.setAttribute('aria-expanded', 'false');
-  })
-);
+// Highlight the nav link of the section currently in view
+const navLinks = [...document.querySelectorAll('nav a')];
+const navSections = navLinks
+  .map(link => document.querySelector(link.hash))
+  .filter(section => section !== null);
 
-// Highlight nav link of the section in view
-const navLinks = [...menu.querySelectorAll('a')];
-const sections = navLinks.map(a => document.querySelector(a.getAttribute('href')));
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      navLinks.forEach(l =>
-        l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id)
+const navObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link =>
+        link.classList.toggle('active', link.hash === '#' + entry.target.id)
       );
     }
   });
-}, { rootMargin: '-45% 0px -50% 0px' });
-sections.forEach(s => s && observer.observe(s));
+}, { rootMargin: '-20% 0px -60% 0px' });
+
+navSections.forEach(section => navObserver.observe(section));
+
+// Click pulse ripple on cards
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!reduceMotion) {
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', e => {
+      if (e.target.closest('a, button')) return;
+      card.classList.remove('clicked');
+      void card.offsetWidth; // restart the animation
+      card.classList.add('clicked');
+    });
+    card.addEventListener('animationend', e => {
+      if (e.animationName === 'clickPulse') card.classList.remove('clicked');
+    });
+  });
+}

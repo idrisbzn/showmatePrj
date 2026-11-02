@@ -60,7 +60,7 @@ body {
 
     
     .container {
-      max-width: 1040px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 32px;
     }
@@ -160,6 +160,10 @@ body {
     .hero {
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      min-height: calc(100vh - 81px);
+      min-height: calc(100svh - 81px);
     }
 
     #gridCanvas {
@@ -175,14 +179,15 @@ body {
     .hero .container {
       position: relative;
       z-index: 1;
-      max-width: 1280px;
+      width: 100%;
+      max-width: 1400px;
       padding: 0 152px;
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.45fr 1fr;
-      gap: 40px;
+      gap: 80px;
       min-height: 467px;
     }
 
@@ -482,5 +487,189 @@ body {
 
       .stats {
         grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ============ INTERACTIONS ============ */
+
+    .brand,
+    .brand img {
+      transition: text-shadow 0.3s ease, filter 0.3s ease;
+    }
+
+    .brand:hover {
+      text-shadow: 0 0 24px var(--glow);
+    }
+
+    .brand:hover img {
+      filter: drop-shadow(0 0 64px var(--glow));
+    }
+
+    nav a {
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 1px;
+      background-color: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.25s ease-in-out;
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      transform: scaleX(1);
+    }
+
+    nav a:active {
+      transform: translateY(1px);
+    }
+
+    nav a:focus-visible {
+      outline: 1px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .card {
+      position: relative;
+      transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 24px;
+      width: 56px;
+      height: 2px;
+      background-color: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 40px -10px var(--glow);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card:active {
+      transform: translateY(-1px) scale(0.99);
+      transition-duration: 0.12s;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      opacity: 0;
+      transform: scale(0.98);
+      pointer-events: none;
+    }
+
+    .card.clicked::after {
+      animation: clickPulse 0.5s ease-out;
+    }
+
+    @keyframes clickPulse {
+      0% {
+        opacity: 0.8;
+        transform: scale(0.99);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.05);
+      }
+    }
+
+    .stat {
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .stat:hover {
+      border-color: var(--accent);
+      transform: translateX(3px);
+    }
+
+    .stat:active {
+      transform: translateX(1px) scale(0.98);
+    }
+
+    .event img {
+      transition: transform 0.3s ease;
+    }
+
+    .event:hover img {
+      transform: scale(1.1);
+    }
+
+    .dot {
+      animation: dotPulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes dotPulse {
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 var(--glow);
+      }
+      50% {
+        box-shadow: 0 0 0 7px rgba(57, 255, 20, 0);
+      }
+    }
+
+    .hero-right img,
+    .cta img {
+      animation: float 5s ease-in-out infinite;
+      transition: filter 0.3s ease;
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    .hero-right:hover img,
+    .cta:hover img {
+      filter: drop-shadow(0 0 64px var(--glow));
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-right img,
+      .cta img,
+      .dot {
+        animation: none;
+      }
+
+      .card.clicked::after {
+        animation: none;
+      }
+
+      .card,
+      nav a,
+      .stat,
+      .brand,
+      .brand img,
+      .event img {
+        transition: none;
       }
     }
