@@ -67,7 +67,6 @@ body {
 
     section {
       padding: 40px 0;
-      border-bottom: 1px solid var(--border);
       scroll-margin-top: 81px;
     }
 
@@ -109,7 +108,6 @@ body {
       z-index: 10;
       height: 81px;
       background-color: var(--bg);
-      border-bottom: 1px solid var(--border);
       -webkit-backdrop-filter: blur(24px);
       backdrop-filter: blur(24px);
     }
@@ -409,8 +407,62 @@ body {
       letter-spacing: 0;
     }
 
+    .showcase,
     .end {
       border-bottom: 0;
+    }
+
+    .showstage {
+      position: relative;
+      height: min(88vh, 760px);
+      min-height: 380px;
+      overflow: hidden;
+    }
+
+    #finaleCanvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+    }
+
+    .show-load {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 1.04px;
+      text-transform: uppercase;
+      animation: loadPulse 1.6s ease-in-out infinite;
+    }
+
+    @keyframes loadPulse {
+      0%, 100% { opacity: 0.45; }
+      50% { opacity: 1; }
+    }
+
+    .showstage.is-ready .show-load {
+      display: none;
+    }
+
+    .show-fallback {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .showstage.is-failed .show-fallback {
+      display: block;
+    }
+
+    .showstage.is-failed #finaleCanvas {
+      display: none;
     }
 
     .end .container {
@@ -656,7 +708,8 @@ body {
     @media (prefers-reduced-motion: reduce) {
       .hero-right img,
       .cta img,
-      .dot {
+      .dot,
+      .show-load {
         animation: none;
       }
 

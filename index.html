@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shellmates </title>
     <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three/three.module.js",
+          "three/addons/": "./vendor/three/addons/"
+        }
+      }
+    </script>
 </head>
 <body>
    <header class="header">
@@ -270,10 +278,22 @@
         </div>
       </div>
     </section>
+
+    <!-- ================= 3D SHOWCASE ================= -->
+    <section id="showcase" class="showcase">
+      <div class="container">
+        <div class="showstage is-loading" id="showstage">
+          <canvas id="finaleCanvas" aria-label="Interactive 3D scene of a chess piece with glowing green orbit rings, with the Shellmates name below." role="img"></canvas>
+          <p class="show-load" aria-hidden="true">Loading 3D scene…</p>
+          <p class="show-fallback">The 3D scene couldn't start on this browser.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
 <script src="script.js"></script>
 <script src="grid.js"></script>
+<script type="module" src="showcase.js"></script>
 
 </body>
 </html>
